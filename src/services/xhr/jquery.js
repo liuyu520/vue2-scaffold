@@ -1,6 +1,6 @@
 export const mode_debug = true
 export const redirectWhenError = false
-export const rootPath = mode_debug ? 'http://stub.yhskyc.com/stub' : 'http://inte-store.chanjet.com'// 后端 API 根路径
+export const rootPath = mode_debug ? 'http://stub.yhskyc.com/stub' : 'http://inte-xxx.com'// 后端 API 根路径
 
 const xhr = ({method = 'get', url, body = null, origin = false}) => {
   // 由于引入了 es6-shim，因此这里完全可以使用原生 Promise
@@ -35,7 +35,7 @@ const xhr = ({method = 'get', url, body = null, origin = false}) => {
             window.dealPackageSubmitError(redirectWhenError,res,url)
           }
           if (redirectWhenError) {
-            window.location.href = 'https://inte-store.chanjet.com/error.html?errorMessage=' + encodeURIComponent(res.msgOfError) + '&error=' + res.codeOfError
+              window.location.href = 'https://xxx.com/error.html?errorMessage=' + encodeURIComponent(res.msgOfError) + '&error=' + res.codeOfError
           } else {
             $.toast({heading: '操作失败' , text: res.msgOfError, icon: 'warning'})
           }

@@ -13,7 +13,7 @@ class ExamService {
     console.log('mode_debug', mode_debug)
     let param = {'orgId': orgId, 'packageId': packageId, 'queryString': JSON.stringify(window._cache['queryString'])}
     if (rootPath && (rootPath.indexOf('store2.chanjet.com') != -1 || rootPath.indexOf('inte-store.chanjet.com') != -1)) {
-      param.request_cid = 'afba7ca5de117080ef792ea4228926b4'
+        param.request_cd = 'afba7ca5de117080ef792ea4228926b4'
     }
     if (businessType) {
       param.businessType = businessType
@@ -33,7 +33,7 @@ class ExamService {
       method: 'get',
       origin: true,
       url: '/order/getInvoiceInfo',
-      body: {'request_cid' : window.cid}
+        body: {'request_cd': window.cd}
     })
   }
   getUserInfo () {
@@ -51,7 +51,7 @@ class ExamService {
    * @resolve {Object} msg
    */
   updateInvoice (params) {
-    params.request_cid = window.cid
+      params.request_cd = window.cd
     return xhr({
       method: 'post',
       url: '/order/updateInvoice',
@@ -73,8 +73,8 @@ class ExamService {
   submitOrder (productPackageSubmitDto) {
     return xhr({
       method: 'post',
-      url: '/package/v1/submitOrder',
-      body: {'productPackageSubmitDto': productPackageSubmitDto,'request_cid' : window.cid}
+        url: '/submitOrder',
+        body: {'productPackageSubmitDto': productPackageSubmitDto, 'request_cd': window.cd}
     })
   }
 
@@ -87,7 +87,7 @@ class ExamService {
     })
   }*/
   orgList (orgId,businessType) {
-    let param = {'request_cid' : window.cid,'orgId': orgId};
+      let param = {'request_cd': window.cd, 'orgId': orgId};
     if (businessType) {
       param.businessType = businessType
     }
@@ -107,9 +107,9 @@ class ExamService {
   createOrg (orgFullName) {
     return xhr({
       method: 'post',
-      url: '/order/createOrg',
+        url: '/test/createOrg',
       origin: true,
-      body: {'request_cid' : window.cid, 'orgName': orgFullName}
+        body: {'request_cd': window.cd, 'orgName': orgFullName}
     })
   }
 }

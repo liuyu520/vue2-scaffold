@@ -14,7 +14,7 @@ import {getInvoice, setMaxCount, setOrgCanChange} from '@/services/status/shared
 //注意:placeorderData 中新增一个配置对象({})
 //名称及格式规范:
 //globalConfig:{
-//cid:'',
+//cd:'',
 //current_datetime:'',
 //PASSPORT_DOMAIN:'',
 //还有应用商店,工作台
@@ -45,23 +45,10 @@ if (debug) {
         return
       }
       // console.log('placeorderData', JSON.stringify(placeorderData))
-      window.cid = placeorderData.cid // 设置全局cid
+        window.cd = placeorderData.cd // 设置全局cd
       window.globalConfig = placeorderData.globalConfig || {}
       window.globalConfig.businessType = getQueryString('businessType')
       window.globalConfig.partnerOrgId = getQueryString('partnerOrgId')
-      if (!window.globalConfig.HKJVERSION_DISPLAYNAME_MAP) {
-        window.globalConfig.HKJVERSION_DISPLAYNAME_MAP = {
-          '0版本': '精英版',
-          '1版本': '普及版',
-          '2版本': '标准版',
-          '3版本': '专业版',
-
-          '0版': '精英版',
-          '1版': '普及版',
-          '2版': '标准版',
-          '3版': '专业版'
-        }
-      }
       if (window.globalConfig.orgfixed) {
         setOrgCanChange(false)
       }
