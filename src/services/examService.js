@@ -12,8 +12,8 @@ class ExamService {
   fetchPackageAuth (orgId, packageId,businessType) {
     console.log('mode_debug', mode_debug)
     let param = {'orgId': orgId, 'packageId': packageId, 'queryString': JSON.stringify(window._cache['queryString'])}
-    if (rootPath && (rootPath.indexOf('store2.chanjet.com') != -1 || rootPath.indexOf('inte-store.chanjet.com') != -1)) {
-        param.request_cd = 'afba7ca5de117080ef792ea4228926b4'
+    if (rootPath && (rootPath.indexOf('store2.aaa.com') != -1 || rootPath.indexOf('xxx.com') != -1)) {
+      param.request_cd = 'afba7ca5de117080ef792ea4228926b4'
     }
     if (businessType) {
       param.businessType = businessType
@@ -107,7 +107,7 @@ class ExamService {
   createOrg (orgFullName) {
     return xhr({
       method: 'post',
-        url: '/test/createOrg',
+      url: '/test/createOrg',
       origin: true,
         body: {'request_cd': window.cd, 'orgName': orgFullName}
     })
